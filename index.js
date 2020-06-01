@@ -7,8 +7,17 @@ fetch('https://api.nasa.gov/planetary/apod?api_key=AgAOKPwUaNaoMb7jMr4ETKQGGqlMt
     let title = document.querySelector('h1');
     title.innerText = data.title
     let copyright = document.getElementById('copyright');
-    copyright.innerText = data.copyright
-   let explanation = document.getElementById('explanation')
-   explanation.innerText = data.explanation
-})
+     
+    let explanation = document.getElementById('explanation')
+    explanation.innerText = data.explanation
 
+
+   if(data.copyright){
+    copyright.innerText = data.copyright
+}else{
+    return
+} 
+
+
+
+})
