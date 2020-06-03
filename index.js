@@ -16,17 +16,17 @@ fetch('https://api.nasa.gov/planetary/apod?api_key=AgAOKPwUaNaoMb7jMr4ETKQGGqlMt
     explanation.innerText = data.explanation
 
 let  genericMediaElement;
-let  genericImageElement;
 
 
-    if(media_type = video ){
+
+    if(data.media_type == 'video' ){
         genericMediaElement=document.createElement ('iframe','video')
        
         
 
      } else{
        
-        genericImageElement= document.createElement('img','image')
+        genericMediaElement= document.createElement('img','image')
       
        image.src=data.url
 
