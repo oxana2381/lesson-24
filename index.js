@@ -2,35 +2,40 @@ fetch('https://api.nasa.gov/planetary/apod?api_key=AgAOKPwUaNaoMb7jMr4ETKQGGqlMt
 .then(response => response.json())
 .then(data => {
    // let image =document.getElementById('image');
-  // image.src=data.url
+   // image.src=data.url
 
-    //let video = document.getElementById('video');
-    video.src = data.url;
+   // let video = document.getElementById('iframe');
+   // video.src = data.url;
   
 
     let title = document.querySelector('h1');
     title.innerText = data.title
     let copyright = document.getElementById('copyright');
+   
      
     let explanation = document.getElementById('explanation')
-    explanation.innerText = data.explanation
+    explanation.innerText = data.explanation;
+    
 
-let  genericMediaElement;
+    let  genericMediaElement;
 
 
 
     if(data.media_type == 'video' ){
-        genericMediaElement=document.createElement ('iframe','video')
+      genericMediaElement=document.createElement ('iframe')
        
-        
+        video.src = data.url;
 
      } else{
+         
        
-        genericMediaElement= document.createElement('img','image')
+       genericMediaElement= document.createElement('img')
       
        image.src=data.url
 
-    }
+     }
+
+
 
 
    if(data.copyright){
